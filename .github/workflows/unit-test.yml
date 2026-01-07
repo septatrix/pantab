@@ -103,6 +103,10 @@ jobs:
 
       - uses: actions/setup-python@v3
 
+      # FIXME drop once https://github.com/tableau/hyper-db/issues/177 is fixed
+      - name: Install cffi build dependencies
+        run: sudo apt install libffi-dev
+
       - name: Install dependencies
         run: python -m pip install nanobind pytest pandas polars pytest-xdist[psutil] pytest-rst pyarrow tableauhyperapi
 
